@@ -2,6 +2,8 @@ import requests
 import sys
 import json
 import random
+from win10toast import ToastNotifier
+toaster = ToastNotifier()
 
 if len(sys.argv)!= 2:
     print("Wrong arguments")
@@ -29,3 +31,8 @@ query = data['query']
 #Display
 for page in query['search']:
     print (page['title'] + " : https://en.wikipedia.org/wiki/" + page['title'].replace(" ","_"))
+    toaster.show_toast("Pick a Search-bot", 
+                        page['title'] + " : https://en.wikipedia.org/wiki/" + page['title'].replace(" ","_"),  
+                        icon_path="wikipedia.ico",
+                        duration=10)
+
