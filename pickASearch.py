@@ -32,10 +32,10 @@ while 1 :
     query = data['query']
 
     #Display
-    for page in query['search']:
-        print (page['title'] + " : https://en.wikipedia.org/wiki/" + page['title'].replace(" ","_"))
-        toaster.show_toast("Pick a Search-bot", 
-                            page['title'] + " :\nhttps://en.wikipedia.org/wiki/" + page['title'].replace(" ","_"),  
-                            icon_path="wikipedia.ico")
+    page = query['search'][0]
+    print (page['title'] + " : https://en.wikipedia.org/wiki/" + page['title'].replace(" ","_"))
+    toaster.show_toast("Pick a Search-bot", 
+                        page['title'] + " :\nhttps://en.wikipedia.org/wiki/" + page['title'].replace(" ","_"),  
+                        icon_path="wikipedia.ico")
     time.sleep(INTERVAL*60)
 
