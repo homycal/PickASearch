@@ -11,4 +11,7 @@ params = {"action":"query", "list": "search", "srsearch": sys.argv[1], "format":
 
 r = requests.get(URL, params= params)
 data = json.loads(r.text)
-print (data)
+query = data['query']
+print(str(query['searchinfo']['totalhits']) + " results")
+for page in query['search']:
+    print (page['title'])
